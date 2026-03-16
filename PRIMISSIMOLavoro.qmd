@@ -1,0 +1,87 @@
+---
+title: "Analisi del dataset Sara"
+format: html
+editor: source
+---
+```{r}
+rm(list=ls())
+
+library(readxl)
+Sara_dataset <- read_xls("Sara_dataset.xls")
+```
+```{r}
+names(data())
+```
+```{r}
+names(Sara_dataset)
+```
+
+```{r}
+head(Sara_dataset)
+```
+```{r}
+sapply(Sara_dataset, class)
+```
+
+## Statistiche descrittive Sara Data
+```{r}
+summary(Sara_dataset)
+```
+```{r}
+summary(Sara_dataset$mathquiz)
+```
+```{r}
+#| fig-cap: "Distribuzione dei punteggi nel Math Quiz"
+#| label: fig-mathquiz
+hist(Sara_dataset$mathquiz)
+```
+
+```{r}
+hist(Sara_dataset$mathquiz)
+```
+
+Come mostrato nella Figura @fig-mathquiz, la distribuzione dei punteggi nel Math Quiz mostra la frequenza dei risultati ottenuti dagli studenti.
+
+## Relazione tra Math Quiz e Stat Quiz
+```{r}
+plot(Sara_dataset$mathquiz,
+     Sara_dataset$statquiz,
+     xlab = "Math Quiz",
+     ylab = "Stat Quiz",
+     main = "Relazione tra punteggi di matematica e statistica")
+```
+
+
+## Distribuzione dei punteggi
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Distribuzione Math Quiz
+
+```{r}
+hist(Sara_dataset$mathquiz)
+```
+
+:::
+
+::: {.column width="50%"}
+
+Distribuzione Stat Quiz
+
+```{r}
+hist(Sara_dataset$statquiz)
+```
+
+:::
+
+::::
+
+
+I risultati del Math Quiz sono <span style="color:red">particolarmente importanti</span> per l'analisi dei dati.
+
+Il dataset contiene `r nrow(Sara_dataset)` osservazioni e `r ncol(Sara_dataset)` variabili.
+
+## Conclusione
+
+In questo lavoro abbiamo analizzato il dataset Sara_dataset utilizzando R e Quarto. Sono stati creati grafici per esplorare la distribuzione dei punteggi nei quiz di matematica e statistica.
